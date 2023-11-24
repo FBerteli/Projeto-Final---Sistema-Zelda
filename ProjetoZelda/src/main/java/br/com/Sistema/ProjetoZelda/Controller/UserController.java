@@ -2,7 +2,6 @@ package br.com.Sistema.ProjetoZelda.Controller;
 
 import br.com.Sistema.ProjetoZelda.Model.UserModel;
 import br.com.Sistema.ProjetoZelda.repository.UserRepository;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,8 +30,17 @@ private static ArrayList<UserModel> users = new ArrayList<>();
     }
 
     @RequestMapping(value = "/user/att/{idUser}", method = RequestMethod.PUT, produces = "application/json")
-    public ResponseEntity<String> attUser(@PathVariable long idUser, UserModel user){
-        users.
+    public UserModel attUser(@PathVariable long idUser, UserModel user){
+        if(userRepository.existsById(idUser)){
+            user.setIdUser(idUser);
+            return userRepository.save(user);
+        }
+        return null;
     }
 
+    @RequestMapping(value = "/user/delete/{idUser}", method = RequestMethod.DELETE, produces = "application/json")
+    public String deleteUser(@PathVariable long idUser){
+        userRepository.deleteById(idUser);
+        return "Usuário deletado!";
+    }
 }
