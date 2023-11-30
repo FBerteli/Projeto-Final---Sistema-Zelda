@@ -9,5 +9,4 @@ public class APIZeldaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(APIZeldaApplication.class, args);
 	}
-
 }
