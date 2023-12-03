@@ -20,6 +20,12 @@ public class UserModel {
     @Column(nullable = false)
     private String senha;
 
+    public UserModel(long idUser, String nome, String email, String senha) {
+        this.idUser = idUser;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+    }
 
     @Override
     public boolean equals(Object o) {
