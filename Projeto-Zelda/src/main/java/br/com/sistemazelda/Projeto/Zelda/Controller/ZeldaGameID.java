@@ -14,11 +14,11 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/webclient")
+@RequestMapping("webclient")
 public class ZeldaGameID {
 
     ZeldaService zeldaService;
-    @GetMapping("/games")
+    @GetMapping("games")
     public Flux<ZeldaAPI> getAllGames(){
     return zeldaService.getGames();
     }
@@ -27,5 +27,4 @@ public class ZeldaGameID {
     public Mono<ZeldaListAPI> getGameById(@PathVariable String id){
         return  zeldaService.getGameByID(id);
     }
-
 }
