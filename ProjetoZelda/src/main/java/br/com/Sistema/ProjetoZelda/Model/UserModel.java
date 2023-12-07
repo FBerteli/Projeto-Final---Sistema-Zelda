@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+
+import java.util.Collection;
 
 @Getter
 @Setter
@@ -19,6 +22,7 @@ public class UserModel {
     private String email;
     @Column(nullable = false)
     private String senha;
+
 
     public UserModel(long idUser, String nome, String email, String senha) {
         this.idUser = idUser;
@@ -48,5 +52,6 @@ public class UserModel {
                 ", email='" + email + '\'' +
                 ", senha='" + senha + '\'' +
                 '}';
+
     }
 }
