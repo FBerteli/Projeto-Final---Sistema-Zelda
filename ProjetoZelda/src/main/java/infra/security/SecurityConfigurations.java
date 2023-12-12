@@ -1,4 +1,4 @@
-package infra.security;
+package com.example.auth.infra.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -18,7 +18,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfigurations {
     @Autowired
-    SecurityFilter securityFilter;
+    com.example.auth.infra.security.SecurityFilter
+            securityFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
